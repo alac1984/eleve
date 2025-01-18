@@ -5,6 +5,7 @@
 - Definition: A string of text that holds some information about the object it is attached
 - Attributes:
     - annotation_id
+    - name
     - text
     - parent_id
     - parent_type
@@ -129,6 +130,7 @@
 - Definition: Is an structure that represent the way we will solve a Project;
 - Attributes:
     - id_plan
+    - name
     - description
     - due_date
     - start_date
@@ -165,6 +167,7 @@
 - Definition: Represents a relevant point to be achieve in a plan
 - Attributes:
     - milestone_id
+    - name
     - due_date
     - achieved_date
     - status
