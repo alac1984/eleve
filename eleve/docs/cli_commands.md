@@ -132,7 +132,7 @@ eleve entity show e90b8831a4b8 --no-relations
 
 ---
 
-### 7. List Entities
+### 5. List Entities
 
 Display a list of entities of the specified type, with various options to filter and format the output.
 
@@ -184,12 +184,12 @@ Initiate a new work cycle for a specific **Task**.
 #### **Usage**
 
 ```shell
-eleve cycle <TASK_ID> start [--work | -w] [--rest | -r] [--rest-after | -
+eleve cycle <TASK_ID> start [--work | -w] [--rest | -r] [--rest-after | -f]
 ```
 
 #### **Description**
 
-Starts a work cycle for the specified **Task**. You can specify whether the cycle is for work or rest.
+Starts a work cycle for the specified **Task**. You can specify whether the cycle is for work or rest. With --rest-after, a rest cycle will start right after an work cycle has finished.
 
 #### **Examples**
 
@@ -202,6 +202,7 @@ eleve cycle e90b8831a4b8 start -r
 
 - `--work`, `-w`: Initiates a work cycle.
 - `--rest`, `-r`: Initiates a rest cycle.
+- `--rest-after`, `-f`: A rest cycle starts right after a work cycle is done.
 
 ---
 
