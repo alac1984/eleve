@@ -6,8 +6,6 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker
 
-from eleve.repository import *
-
 load_dotenv()
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
@@ -19,7 +17,6 @@ async def init_db():
         # await conn.run_sync(SQLModel.metadata.drop_all)
         await conn.run_sync(SQLModel.metadata.create_all)
 
-
 async def get_session() -> AsyncSession:  # type: ignore
     async_session = sessionmaker(
         engine, class_=AsyncSession, expire_on_commit=False
@@ -27,7 +24,6 @@ async def get_session() -> AsyncSession:  # type: ignore
     async with async_session() as session:
         yield session
 
-
-if __name__ == "__main__":
-    breakpoint()
-    print(dir(engine))
+def get_sync_engine():
+    sync_url = DATABASE_URL.replace("+asyncpg", "+psycopg2")
+    return create_engine(sync_url, echo=True, future=True)
